@@ -70,13 +70,13 @@ variables:
 #############################################################################################################
    # Node Variables
 #############################################################################################################
-    ENABLE_NODE_CI: "true"
+    ENABLE_NODE_CI: "false"
     ENABLE_NODE_BUILD: "true"
-    ENABLE_NODE_LINT: "true"
-    ENABLE_NODE_TEST: "true"
-    ENABLE_NODE_PUBLISH: "true"
+    ENABLE_NODE_LINT: "false"
+    ENABLE_NODE_TEST: "false"
+    ENABLE_NODE_PUBLISH: "false"
     # variable for tracking pipeline usage
-    SWF_PIPELINE_METRICS_PIPELINES_NODE_BASIC: "true"
+    SWF_PIPELINE_METRICS_PIPELINES_NODE_BASIC: "false"
 
 #############################################################################################################
 # Node Section
