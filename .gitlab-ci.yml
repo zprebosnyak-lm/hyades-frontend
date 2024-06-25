@@ -46,6 +46,8 @@ workflow:
 #############################################################################################################
 include:
   - remote: "https://pipeline-catalog.global.lmco.com/api/v1/modules/stages/v1.0.10/templates/stages.gitlab-ci.yml"
+  - remote: 'https://pipeline-catalog.global.lmco.com/api/v1/ez-registry/modules/stages/v1.0.10/templates/stages.gitlab-ci.yml'
+  - remote: 'https://pipeline-catalog.global.lmco.com/api/v1/ez-registry/modules/node/v2.0.27/pipelines/node-full.gitlab-ci.yml'
   - remote: "https://pipeline-catalog.global.lmco.com/api/v1/global/modules/kaniko/v3.0.23/modules/kaniko-build.gitlab-ci.yml"
 #############################################################################################################
 # Variables
@@ -57,13 +59,41 @@ variables:
     no_proxy: ".lmco.com,.LMCO.COM,*.lmco.com,*.LMCO.COM,127.0.0.1,localhost,.amazonaws.com,*.amazonaws.com"
 #############################################################################################################
    # Kaniko Variables
-#########################################
+#############################################################################################################
     DOCKER_BUILD_DIR: "./docker"
     DOCKER_IMAGE: "harbor.global.lmco.com/lmc.eo.swf.lmified/ext.hub.docker.com/library/alpine"
     DOCKER_REGISTRY: harbor.global.lmco.com
     DOCKER_AUTO_TAG_LATEST: "TRUE"
     ENABLE_KANIKO: "true"
     KANIKO_BOM_GEN: "false"
+
+#############################################################################################################
+   # Node Variables
+#############################################################################################################
+    ENABLE_NODE_CI: "true"
+    ENABLE_NODE_BUILD: "true"
+    ENABLE_NODE_LINT: "true"
+    ENABLE_NODE_TEST: "true"
+    ENABLE_NODE_PUBLISH: "true"
+    # variable for tracking pipeline usage
+    SWF_PIPELINE_METRICS_PIPELINES_NODE_BASIC: "true"
+
+#############################################################################################################
+# Node Section
+#############################################################################################################
+node-build:
+    extends: .node-cmd
+    stage: build
+    variables:
+        NODE_CMD: "npm run build"
+    rules:
+        - if: $ENABLE_NODE_BUILD == "true"
+    cache:
+        key: ${CI_COMMIT_REF_SLUG}
+        untracked: true
+        paths:
+            - $NODE_CMD_SOURCE_DIRECTORY/node_modules/
+
 #############################################################################################################
 # Kaniko Section
 #############################################################################################################
