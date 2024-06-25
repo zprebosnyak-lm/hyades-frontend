@@ -70,6 +70,7 @@ variables:
 #############################################################################################################
    # Node Variables
 #############################################################################################################
+variables:
     ENABLE_NODE_CI: "false"
     ENABLE_NODE_BUILD: "true"
     ENABLE_NODE_LINT: "false"
@@ -77,23 +78,8 @@ variables:
     ENABLE_NODE_PUBLISH: "false"
     # variable for tracking pipeline usage
     SWF_PIPELINE_METRICS_PIPELINES_NODE_BASIC: "false"
-
-#############################################################################################################
-# Node Section
-#############################################################################################################
-node-build:
-    extends: .node-cmd
-    stage: build
-    variables:
-        NODE_CMD: "npm run build"
-    rules:
-        - if: $ENABLE_NODE_BUILD == "true"
-    cache:
-        key: ${CI_COMMIT_REF_SLUG}
-        untracked: true
-        paths:
-            - $NODE_CMD_SOURCE_DIRECTORY/node_modules/
-
+include:
+    - remote: "https://pipeline-catalog.global.lmco.com/api/v1/ez-registry/modules/node/v2.0.27/modules/node-cmd.yml"
 #############################################################################################################
 # Kaniko Section
 #############################################################################################################
