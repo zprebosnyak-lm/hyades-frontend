@@ -47,7 +47,7 @@ workflow:
 include:
   - remote: "https://pipeline-catalog.global.lmco.com/api/v1/modules/stages/v1.0.10/templates/stages.gitlab-ci.yml"
   - remote: "https://pipeline-catalog.global.lmco.com/api/v1/ez-registry/modules/node/v2.0.27/modules/node-cmd.yml"
-#  - remote: "https://pipeline-catalog.global.lmco.com/api/v1/global/modules/kaniko/v3.0.23/modules/kaniko-build.gitlab-ci.yml"
+  - remote: "https://pipeline-catalog.global.lmco.com/api/v1/global/modules/kaniko/v3.0.23/modules/kaniko-build.gitlab-ci.yml"
 #############################################################################################################
 # Variables
 #############################################################################################################
@@ -89,15 +89,15 @@ node-build:
 #############################################################################################################
 # Kaniko Section
 #############################################################################################################
- kaniko:
+kaniko:
   stage: package
   rules:
     - if: $ENABLE_KANIKO == "true"
 
 # Had to move this to package stage despite being disabled by KANIKO_BOM_GEN variable
- kaniko-bom:
+kaniko-bom:
   stage: package
 
 # Had to move this to package stage despite being disabled by KANIKO_BOM_GEN variable
- kaniko-bom-validate:
+kaniko-bom-validate:
   stage: package
