@@ -59,10 +59,11 @@ variables:
 #############################################################################################################
    # Kaniko Variables
 #############################################################################################################
-    DOCKER_BUILD_DIR: "./docker"
-    DOCKER_IMAGE: "harbor.global.lmco.com/lmc.eo.swf.lmified/ext.hub.docker.com/library/alpine"
-    DOCKER_REGISTRY: harbor.global.lmco.com
-    DOCKER_AUTO_TAG_LATEST: "TRUE"
+    DOCKER_BUILD_DIR: "."
+    DOCKER_FILE: "docker/Dockerfile.alpine"
+    DOCKER_IMAGE: "registry.gitlab.global.lmco.com:443/software-factory/applications/secure-delivery/secure-software-supply-chain-tools/hyades/hyades-frontend"
+    DOCKER_REGISTRY: registry.gitlab.global.lmco.com:443
+    DOCKER_IMAGE_NAME_TAGGED: $CI_COMMIT_REF_NAME
     ENABLE_KANIKO: "true"
     KANIKO_BOM_GEN: "false"
 
@@ -78,17 +79,25 @@ variables:
     SWF_PIPELINE_METRICS_PIPELINES_NODE_BASIC: "false"
 
 #############################################################################################################
+   # Node Build
+#############################################################################################################
+node-build:
+  artifacts:
+    paths:
+      - dist/
+
+#############################################################################################################
 # Kaniko Section
 #############################################################################################################
-# kaniko:
-#  stage: package
-#  rules:
-#    - if: $ENABLE_KANIKO == "true"
+ kaniko:
+  stage: package
+  rules:
+    - if: $ENABLE_KANIKO == "true"
 
 # Had to move this to package stage despite being disabled by KANIKO_BOM_GEN variable
-# kaniko-bom:
-#  stage: package
+ kaniko-bom:
+  stage: package
 
 # Had to move this to package stage despite being disabled by KANIKO_BOM_GEN variable
-# kaniko-bom-validate:
-#  stage: package
+ kaniko-bom-validate:
+  stage: package
