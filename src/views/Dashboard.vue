@@ -11,7 +11,7 @@
             <!-- Change below v-permission back to PORTFOLIO_MANAGEMENT -->
             {{ $t('message.last_measurement') }}: {{ lastMeasurement
             }}<b-link
-              v-permission:or="['VIEW_PORTFOLIO', 'VIEW_VULNERABILITY']"
+              v-permission:or="['VIEW_POLICY_VIOLATION', 'VIEW_VULNERABILITY']"
               class="font-weight-bold"
               style="margin-left: 6px"
               v-on:click="refreshMetrics"
