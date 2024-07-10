@@ -25,6 +25,8 @@
           v-b-modal.projectUploadBomModal
           v-permission:or="[
             PERMISSIONS.PORTFOLIO_MANAGEMENT,
+            PERMISSIONS.PORTFOLIO_MANAGEMENT_CREATE,
+            PERMISSIONS.PORTFOLIO_MANAGEMENT_UPDATE,
             PERMISSIONS.BOM_UPLOAD,
           ]"
         >
