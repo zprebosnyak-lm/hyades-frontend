@@ -23,12 +23,7 @@
           size="md"
           variant="outline-primary"
           v-b-modal.projectUploadBomModal
-          v-permission:or="[
-            PERMISSIONS.PORTFOLIO_MANAGEMENT,
-            PERMISSIONS.PORTFOLIO_MANAGEMENT_CREATE,
-            PERMISSIONS.PORTFOLIO_MANAGEMENT_UPDATE,
-            PERMISSIONS.BOM_UPLOAD,
-          ]"
+          v-permission="PERMISSIONS.BOM_UPLOAD"
         >
           <span class="fa fa-upload"></span> {{ $t('message.upload_bom') }}
         </b-button>

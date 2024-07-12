@@ -123,7 +123,7 @@ function configRoutes() {
             title: i18n.t('message.dashboard'),
             i18n: 'message.dashboard',
             sectionPath: '/dashboard',
-            permission: 'VIEW_PORTFOLIO',
+            permission: ['VIEW_PORTFOLIO'],
           },
         },
         {
@@ -134,7 +134,7 @@ function configRoutes() {
             title: i18n.t('message.projects'),
             i18n: 'message.projects',
             sectionPath: '/projects',
-            permission: 'VIEW_PORTFOLIO',
+            permissions: ['VIEW_PORTFOLIO'],
           },
         },
         {
@@ -154,7 +154,7 @@ function configRoutes() {
           meta: {
             i18n: 'message.projects',
             sectionPath: '/projects',
-            permission: 'VIEW_PORTFOLIO',
+            permissions: ['VIEW_PORTFOLIO'],
           },
         },
         {
@@ -168,7 +168,7 @@ function configRoutes() {
           meta: {
             i18n: 'message.projects',
             sectionPath: '/projects',
-            permission: 'VIEW_PORTFOLIO',
+            permissions: ['VIEW_PORTFOLIO'],
           },
         },
         {
@@ -182,7 +182,7 @@ function configRoutes() {
           meta: {
             i18n: 'message.projects',
             sectionPath: '/projects',
-            permission: 'VIEW_PORTFOLIO',
+            permissions: ['VIEW_PORTFOLIO'],
           },
         },
         {
@@ -197,7 +197,7 @@ function configRoutes() {
           meta: {
             i18n: 'message.projects',
             sectionPath: '/projects',
-            permission: 'VIEW_PORTFOLIO',
+            permissions: ['VIEW_PORTFOLIO'],
           },
         },
         {
@@ -208,7 +208,7 @@ function configRoutes() {
             title: i18n.t('message.component_search'),
             i18n: 'message.component_search',
             sectionPath: '/components',
-            permission: 'VIEW_PORTFOLIO',
+            permissions: ['VIEW_PORTFOLIO'],
           },
         },
         {
@@ -223,7 +223,7 @@ function configRoutes() {
           meta: {
             i18n: 'message.projects',
             sectionPath: '/projects',
-            permission: 'VIEW_PORTFOLIO',
+            permissions: ['VIEW_PORTFOLIO'],
           },
         },
         {
@@ -234,7 +234,7 @@ function configRoutes() {
           meta: {
             i18n: 'message.projects',
             sectionPath: '/projects',
-            permission: 'VIEW_PORTFOLIO',
+            permissions: ['VIEW_PORTFOLIO'],
           },
         },
         {
@@ -245,7 +245,7 @@ function configRoutes() {
             title: i18n.t('message.vulnerabilities'),
             i18n: 'message.vulnerabilities',
             sectionPath: '/vulnerabilities',
-            permission: 'VIEW_PORTFOLIO',
+            permissions: ['VIEW_PORTFOLIO'],
           },
         },
         {
@@ -263,7 +263,7 @@ function configRoutes() {
           meta: {
             i18n: 'message.vulnerabilities',
             sectionPath: '/vulnerabilities',
-            permission: 'VIEW_PORTFOLIO',
+            permissions: ['VIEW_PORTFOLIO'],
           },
         },
         {
@@ -274,7 +274,7 @@ function configRoutes() {
             title: i18n.t('message.licenses'),
             i18n: 'message.licenses',
             sectionPath: '/licenses',
-            permission: 'VIEW_PORTFOLIO',
+            permissions: ['VIEW_PORTFOLIO'],
           },
         },
         {
@@ -291,7 +291,7 @@ function configRoutes() {
           meta: {
             i18n: 'message.licenses',
             sectionPath: '/licenses',
-            permission: 'VIEW_PORTFOLIO',
+            permissions: ['VIEW_PORTFOLIO'],
           },
         },
         {
@@ -307,7 +307,7 @@ function configRoutes() {
             title: i18n.t('message.policy_management'),
             i18n: 'message.policy_management',
             sectionPath: '/policy',
-            permission: 'POLICY_MANAGEMENT',
+            permissions: ['POLICY_MANAGEMENT'],
           },
         },
         {
@@ -317,7 +317,7 @@ function configRoutes() {
             title: i18n.t('message.administration'),
             i18n: 'message.administration',
             sectionPath: '/admin',
-            permission: 'SYSTEM_CONFIGURATION',
+            permissions: ['SYSTEM_CONFIGURATION'],
           },
           children: [
             {
@@ -329,7 +329,7 @@ function configRoutes() {
                 title: i18n.t('message.administration'),
                 i18n: 'message.administration',
                 sectionPath: '/admin',
-                permission: 'SYSTEM_CONFIGURATION',
+                permissions: ['SYSTEM_CONFIGURATION'],
               },
             },
             {
@@ -339,7 +339,7 @@ function configRoutes() {
                 title: i18n.t('message.administration'),
                 i18n: 'message.administration',
                 sectionPath: '/admin',
-                permission: 'SYSTEM_CONFIGURATION',
+                permissions: ['SYSTEM_CONFIGURATION'],
               },
             },
             {
@@ -349,7 +349,7 @@ function configRoutes() {
                 title: i18n.t('message.administration'),
                 i18n: 'message.administration',
                 sectionPath: '/admin',
-                permission: 'SYSTEM_CONFIGURATION',
+                permissions: ['SYSTEM_CONFIGURATION'],
               },
             },
             {
@@ -359,7 +359,7 @@ function configRoutes() {
                 title: i18n.t('message.administration'),
                 i18n: 'message.administration',
                 sectionPath: '/admin',
-                permission: 'SYSTEM_CONFIGURATION',
+                permissions: ['SYSTEM_CONFIGURATION'],
               },
             },
             {
@@ -369,7 +369,7 @@ function configRoutes() {
                 title: i18n.t('message.administration'),
                 i18n: 'message.administration',
                 sectionPath: '/admin',
-                permission: 'SYSTEM_CONFIGURATION',
+                permissions: ['SYSTEM_CONFIGURATION'],
               },
             },
             {
@@ -379,7 +379,7 @@ function configRoutes() {
                 title: i18n.t('message.administration'),
                 i18n: 'message.administration',
                 sectionPath: '/admin',
-                permission: 'SYSTEM_CONFIGURATION',
+                permissions: ['SYSTEM_CONFIGURATION'],
               },
             },
             {
@@ -389,7 +389,7 @@ function configRoutes() {
                 title: i18n.t('message.administration'),
                 i18n: 'message.administration',
                 sectionPath: '/admin',
-                permission: 'SYSTEM_CONFIGURATION',
+                permissions: ['SYSTEM_CONFIGURATION'],
               },
             },
             {
@@ -399,7 +399,7 @@ function configRoutes() {
                 title: i18n.t('message.administration'),
                 i18n: 'message.administration',
                 sectionPath: '/admin',
-                permission: 'SYSTEM_CONFIGURATION',
+                permissions: ['SYSTEM_CONFIGURATION'],
               },
             },
             {
@@ -409,7 +409,7 @@ function configRoutes() {
                 title: i18n.t('message.administration'),
                 i18n: 'message.administration',
                 sectionPath: '/admin',
-                permission: 'SYSTEM_CONFIGURATION',
+                permissions: ['SYSTEM_CONFIGURATION'],
               },
             },
             {
@@ -420,7 +420,7 @@ function configRoutes() {
                 title: i18n.t('message.administration'),
                 i18n: 'message.administration',
                 sectionPath: '/admin',
-                permission: 'SYSTEM_CONFIGURATION',
+                permissions: ['SYSTEM_CONFIGURATION'],
               },
             },
             {
@@ -430,7 +430,7 @@ function configRoutes() {
                 title: i18n.t('message.administration'),
                 i18n: 'message.administration',
                 sectionPath: '/admin',
-                permission: 'SYSTEM_CONFIGURATION',
+                permissions: ['SYSTEM_CONFIGURATION'],
               },
             },
             {
@@ -440,7 +440,7 @@ function configRoutes() {
                 title: i18n.t('message.administration'),
                 i18n: 'message.administration',
                 sectionPath: '/admin',
-                permission: 'SYSTEM_CONFIGURATION',
+                permissions: ['SYSTEM_CONFIGURATION'],
               },
             },
             {
@@ -450,7 +450,7 @@ function configRoutes() {
                 title: i18n.t('message.administration'),
                 i18n: 'message.administration',
                 sectionPath: '/admin',
-                permission: 'SYSTEM_CONFIGURATION',
+                permissions: ['SYSTEM_CONFIGURATION'],
               },
             },
             {
@@ -460,7 +460,7 @@ function configRoutes() {
                 title: i18n.t('message.administration'),
                 i18n: 'message.administration',
                 sectionPath: '/admin',
-                permission: 'SYSTEM_CONFIGURATION',
+                permissions: ['SYSTEM_CONFIGURATION'],
               },
             },
             {
@@ -471,7 +471,7 @@ function configRoutes() {
                 title: i18n.t('message.administration'),
                 i18n: 'message.administration',
                 sectionPath: '/admin',
-                permission: 'SYSTEM_CONFIGURATION',
+                permissions: ['SYSTEM_CONFIGURATION'],
               },
             },
             {
@@ -481,7 +481,7 @@ function configRoutes() {
                 title: i18n.t('message.administration'),
                 i18n: 'message.administration',
                 sectionPath: '/admin',
-                permission: 'SYSTEM_CONFIGURATION',
+                permissions: ['SYSTEM_CONFIGURATION'],
               },
             },
             {
@@ -491,7 +491,7 @@ function configRoutes() {
                 title: i18n.t('message.administration'),
                 i18n: 'message.administration',
                 sectionPath: '/admin',
-                permission: 'SYSTEM_CONFIGURATION',
+                permissions: ['SYSTEM_CONFIGURATION'],
               },
             },
             {
@@ -502,7 +502,7 @@ function configRoutes() {
                 title: i18n.t('message.administration'),
                 i18n: 'message.administration',
                 sectionPath: '/admin',
-                permission: 'SYSTEM_CONFIGURATION',
+                permissions: ['SYSTEM_CONFIGURATION'],
               },
             },
             {
@@ -512,7 +512,7 @@ function configRoutes() {
                 title: i18n.t('message.administration'),
                 i18n: 'message.administration',
                 sectionPath: '/admin',
-                permission: 'SYSTEM_CONFIGURATION',
+                permissions: ['SYSTEM_CONFIGURATION'],
               },
             },
             {
@@ -522,7 +522,7 @@ function configRoutes() {
                 title: i18n.t('message.administration'),
                 i18n: 'message.administration',
                 sectionPath: '/admin',
-                permission: 'SYSTEM_CONFIGURATION',
+                permissions: ['SYSTEM_CONFIGURATION'],
               },
             },
             {
@@ -532,7 +532,7 @@ function configRoutes() {
                 title: i18n.t('message.administration'),
                 i18n: 'message.administration',
                 sectionPath: '/admin',
-                permission: 'SYSTEM_CONFIGURATION',
+                permissions: ['SYSTEM_CONFIGURATION'],
               },
             },
             {
@@ -542,7 +542,7 @@ function configRoutes() {
                 title: i18n.t('message.administration'),
                 i18n: 'message.administration',
                 sectionPath: '/admin',
-                permission: 'SYSTEM_CONFIGURATION',
+                permissions: ['SYSTEM_CONFIGURATION'],
               },
             },
             {
@@ -552,7 +552,7 @@ function configRoutes() {
                 title: i18n.t('message.administration'),
                 i18n: 'message.administration',
                 sectionPath: '/admin',
-                permission: 'SYSTEM_CONFIGURATION',
+                permissions: ['SYSTEM_CONFIGURATION'],
               },
             },
             {
@@ -562,7 +562,7 @@ function configRoutes() {
                 title: i18n.t('message.administration'),
                 i18n: 'message.administration',
                 sectionPath: '/admin',
-                permission: 'SYSTEM_CONFIGURATION',
+                permissions: ['SYSTEM_CONFIGURATION'],
               },
             },
             {
@@ -572,7 +572,7 @@ function configRoutes() {
                 title: i18n.t('message.administration'),
                 i18n: 'message.administration',
                 sectionPath: '/admin',
-                permission: 'SYSTEM_CONFIGURATION',
+                permissions: ['SYSTEM_CONFIGURATION'],
               },
             },
             {
@@ -582,7 +582,7 @@ function configRoutes() {
                 title: i18n.t('message.administration'),
                 i18n: 'message.administration',
                 sectionPath: '/admin',
-                permission: 'SYSTEM_CONFIGURATION',
+                permissions: ['SYSTEM_CONFIGURATION'],
               },
             },
             {
@@ -592,7 +592,7 @@ function configRoutes() {
                 title: i18n.t('message.administration'),
                 i18n: 'message.administration',
                 sectionPath: '/admin',
-                permission: 'SYSTEM_CONFIGURATION',
+                permissions: ['SYSTEM_CONFIGURATION'],
               },
             },
             {
@@ -602,7 +602,7 @@ function configRoutes() {
                 title: i18n.t('message.administration'),
                 i18n: 'message.administration',
                 sectionPath: '/admin',
-                permission: 'SYSTEM_CONFIGURATION',
+                permissions: ['SYSTEM_CONFIGURATION'],
               },
             },
             {
@@ -612,7 +612,7 @@ function configRoutes() {
                 title: i18n.t('message.administration'),
                 i18n: 'message.administration',
                 sectionPath: '/admin',
-                permission: 'SYSTEM_CONFIGURATION',
+                permissions: ['SYSTEM_CONFIGURATION'],
               },
             },
             {
@@ -622,7 +622,7 @@ function configRoutes() {
                 title: i18n.t('message.administration'),
                 i18n: 'message.administration',
                 sectionPath: '/admin',
-                permission: 'SYSTEM_CONFIGURATION',
+                permissions: ['SYSTEM_CONFIGURATION'],
               },
             },
             {
@@ -633,7 +633,7 @@ function configRoutes() {
                 title: i18n.t('message.administration'),
                 i18n: 'message.administration',
                 sectionPath: '/admin',
-                permission: 'SYSTEM_CONFIGURATION',
+                permissions: ['SYSTEM_CONFIGURATION'],
               },
             },
             {
@@ -643,7 +643,7 @@ function configRoutes() {
                 title: i18n.t('message.administration'),
                 i18n: 'message.administration',
                 sectionPath: '/admin',
-                permission: 'SYSTEM_CONFIGURATION',
+                permissions: ['SYSTEM_CONFIGURATION'],
               },
             },
             {
@@ -654,7 +654,7 @@ function configRoutes() {
                 title: i18n.t('message.administration'),
                 i18n: 'message.administration',
                 sectionPath: '/admin',
-                permission: 'SYSTEM_CONFIGURATION',
+                permissions: ['SYSTEM_CONFIGURATION'],
               },
             },
             {
@@ -664,7 +664,7 @@ function configRoutes() {
                 title: i18n.t('message.administration'),
                 i18n: 'message.administration',
                 sectionPath: '/admin',
-                permission: 'SYSTEM_CONFIGURATION',
+                permissions: ['SYSTEM_CONFIGURATION'],
               },
             },
             {
@@ -674,7 +674,7 @@ function configRoutes() {
                 title: i18n.t('message.administration'),
                 i18n: 'message.administration',
                 sectionPath: '/admin',
-                permission: 'SYSTEM_CONFIGURATION',
+                permissions: ['SYSTEM_CONFIGURATION'],
               },
             },
             {
@@ -685,7 +685,13 @@ function configRoutes() {
                 title: i18n.t('message.administration'),
                 i18n: 'message.administration',
                 sectionPath: '/admin',
-                permission: 'ACCESS_MANAGEMENT',
+                permissions: [
+                  'ACCESS_MANAGEMENT',
+                  'ACCESS_MANAGEMENT_CREATE',
+                  'ACCESS_MANAGEMENT_READ',
+                  'ACCESS_MANAGEMENT_UPDATE',
+                  'ACCESS_MANAGEMENT_DELETE',
+                ],
               },
             },
             {
@@ -695,7 +701,13 @@ function configRoutes() {
                 title: i18n.t('message.administration'),
                 i18n: 'message.administration',
                 sectionPath: '/admin',
-                permission: 'ACCESS_MANAGEMENT',
+                permissions: [
+                  'ACCESS_MANAGEMENT',
+                  'ACCESS_MANAGEMENT_CREATE',
+                  'ACCESS_MANAGEMENT_READ',
+                  'ACCESS_MANAGEMENT_UPDATE',
+                  'ACCESS_MANAGEMENT_DELETE',
+                ],
               },
             },
             {
@@ -705,7 +717,13 @@ function configRoutes() {
                 title: i18n.t('message.administration'),
                 i18n: 'message.administration',
                 sectionPath: '/admin',
-                permission: 'ACCESS_MANAGEMENT',
+                permissions: [
+                  'ACCESS_MANAGEMENT',
+                  'ACCESS_MANAGEMENT_CREATE',
+                  'ACCESS_MANAGEMENT_READ',
+                  'ACCESS_MANAGEMENT_UPDATE',
+                  'ACCESS_MANAGEMENT_DELETE',
+                ],
               },
             },
             {
@@ -715,7 +733,13 @@ function configRoutes() {
                 title: i18n.t('message.administration'),
                 i18n: 'message.administration',
                 sectionPath: '/admin',
-                permission: 'ACCESS_MANAGEMENT',
+                permissions: [
+                  'ACCESS_MANAGEMENT',
+                  'ACCESS_MANAGEMENT_CREATE',
+                  'ACCESS_MANAGEMENT_READ',
+                  'ACCESS_MANAGEMENT_UPDATE',
+                  'ACCESS_MANAGEMENT_DELETE',
+                ],
               },
             },
             {
@@ -725,7 +749,13 @@ function configRoutes() {
                 title: i18n.t('message.administration'),
                 i18n: 'message.administration',
                 sectionPath: '/admin',
-                permission: 'ACCESS_MANAGEMENT',
+                permissions: [
+                  'ACCESS_MANAGEMENT',
+                  'ACCESS_MANAGEMENT_CREATE',
+                  'ACCESS_MANAGEMENT_READ',
+                  'ACCESS_MANAGEMENT_UPDATE',
+                  'ACCESS_MANAGEMENT_DELETE',
+                ],
               },
             },
             {
@@ -735,7 +765,13 @@ function configRoutes() {
                 title: i18n.t('message.administration'),
                 i18n: 'message.administration',
                 sectionPath: '/admin',
-                permission: 'ACCESS_MANAGEMENT',
+                permissions: [
+                  'ACCESS_MANAGEMENT',
+                  'ACCESS_MANAGEMENT_CREATE',
+                  'ACCESS_MANAGEMENT_READ',
+                  'ACCESS_MANAGEMENT_UPDATE',
+                  'ACCESS_MANAGEMENT_DELETE',
+                ],
               },
             },
             {
@@ -745,7 +781,13 @@ function configRoutes() {
                 title: i18n.t('message.administration'),
                 i18n: 'message.administration',
                 sectionPath: '/admin',
-                permission: 'ACCESS_MANAGEMENT',
+                permissions: [
+                  'ACCESS_MANAGEMENT',
+                  'ACCESS_MANAGEMENT_CREATE',
+                  'ACCESS_MANAGEMENT_READ',
+                  'ACCESS_MANAGEMENT_UPDATE',
+                  'ACCESS_MANAGEMENT_DELETE',
+                ],
               },
             },
           ],
@@ -762,7 +804,7 @@ function configRoutes() {
             title: i18n.t('message.vulnerability_audit'),
             i18n: 'message.vulnerability_audit',
             sectionPath: '/globalAudit',
-            permission: 'VIEW_VULNERABILITY',
+            permissions: ['VIEW_VULNERABILITY'],
           },
         },
         // The following route redirects URLs from legacy Dependency-Track UI to new URL format.
@@ -865,11 +907,14 @@ router.beforeEach((to, from, next) => {
     next({ name: 'Login', query: { redirect: to.fullPath }, replace: true });
   };
 
-  if (to.meta.permission) {
+  if (to.meta.permissions) {
     // non-public route, check permissions
     const jwt = getToken();
     if (jwt) {
-      if (hasPermission(to.meta.permission)) {
+      const isAllowed = to.meta.permissions.some((permission) =>
+        hasPermission(permission, jwt),
+      );
+      if (isAllowed) {
         // let backend verify the token
         router.app.axios
           .get(`${router.app.$api.BASE_URL}/${router.app.$api.URL_USER_SELF}`, {
