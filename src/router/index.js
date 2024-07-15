@@ -123,7 +123,7 @@ function configRoutes() {
             title: i18n.t('message.dashboard'),
             i18n: 'message.dashboard',
             sectionPath: '/dashboard',
-            permission: ['VIEW_PORTFOLIO'],
+            permissions: ['VIEW_PORTFOLIO'],
           },
         },
         {
@@ -912,7 +912,7 @@ router.beforeEach((to, from, next) => {
     const jwt = getToken();
     if (jwt) {
       const isAllowed = to.meta.permissions.some((permission) =>
-        hasPermission(permission, jwt),
+        hasPermission(permission),
       );
       if (isAllowed) {
         // let backend verify the token
