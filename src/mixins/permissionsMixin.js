@@ -50,10 +50,35 @@ export default {
   },
   methods: {
     isPermitted(permission) {
-      return permissions.hasPermission(permission, this.decodedToken);
+      // return permissions.hasPermission(permission, this.decodedToken);
+      if (typeof permission == 'string') {
+        return permissions.hasPermission(permission, this.decodedToken);
+      }
+      else if (Array.isArray(permission)) {
+        for (let perm of permission) {
+          if (permissions.hasPermission(perm, this.decodedToken)) {
+            return true;
+          }
+        }
+        return false;
+      } else {
+        throw new Error("permission must be of type string or array")
+      }
     },
     isNotPermitted(permission) {
-      return !permissions.hasPermission(permission, this.decodedToken);
+      if (typeof permission == 'string') {
+        return !permissions.hasPermission(permission, this.decodedToken);
+      }
+      else if (Array.isArray(permission)) {
+        for (let perm of permission) {
+          if (permissions.hasPermission(perm, this.decodedToken)) {
+            return false;
+          }
+        }
+        return true;
+      } else {
+        throw new Error("permission must be of type string or array")
+      }
     },
   },
 };

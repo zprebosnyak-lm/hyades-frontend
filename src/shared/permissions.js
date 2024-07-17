@@ -44,7 +44,16 @@ export const POLICY_MANAGEMENT_DELETE = 'POLICY_MANAGEMENT_DELETE';
 export const hasPermission = function hasPermission(permission, decodedToken) {
   const token = decodedToken || decodeToken(getToken());
   const permissions = token?.permissions?.split(',') || [];
-  return permissions.includes(permission);
+  if (typeof permission == 'string') {
+    return permissions.includes(permission);
+  } else if (Array.isArray(permission)) {
+    for (let perm of permission) {
+      if (permissions.includes(perm)) {
+        return true;
+      }
+    }
+    return false;
+  }
 };
 
 /**
