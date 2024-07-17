@@ -103,7 +103,7 @@ get_version:
       gpgkey = file:///etc/pki/rpm-gpg/RPM-GPG-KEY-redhat-release
       EOF
     - yum install jq -y
-    - echo POM_VERSION=$(jq -r '.version' package.json) > variables.env
+    - echo PACKAGE_VERSION=$(jq -r '.version' package.json) > variables.env
     - cat variables.env
   artifacts:
     reports:
@@ -116,9 +116,9 @@ kaniko:
   before_script:
     - |
       if [[ $CI_COMMIT_REF_NAME == $CI_DEFAULT_BRANCH ]]; then
-        export DOCKER_TAG="$CI_COMMIT_REF_SLUG-$POM_VERSION"
+        export DOCKER_TAG="$CI_COMMIT_REF_SLUG-$PACKAGE_VERSION"
       else
-        export DOCKER_TAG="$CI_COMMIT_REF_SLUG-$POM_VERSION-$CI_COMMIT_SHORT_SHA"
+        export DOCKER_TAG="$CI_COMMIT_REF_SLUG-$PACKAGE_VERSION-$CI_COMMIT_SHORT_SHA"
       fi
     - echo DOCKER_TAG - $DOCKER_TAG
   rules:
