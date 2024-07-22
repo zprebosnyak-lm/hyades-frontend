@@ -48,35 +48,32 @@ include:
   - remote: "https://pipeline-catalog.global.lmco.com/api/v1/modules/stages/v1.0.10/templates/stages.gitlab-ci.yml"
   - remote: "https://pipeline-catalog.global.lmco.com/api/v1/ez-registry/modules/node/v2.0.27/modules/node-cmd.yml"
   - remote: "https://pipeline-catalog.global.lmco.com/api/v1/global/modules/kaniko/v3.0.23/modules/kaniko-build.gitlab-ci.yml"
+
 #############################################################################################################
 # Variables
 #############################################################################################################
-
 variables:
-    http_proxy: http://proxy-zsgov.external.lmco.com:80
-    https_proxy: http://proxy-zsgov.external.lmco.com:80
-    no_proxy: ".lmco.com,.LMCO.COM,*.lmco.com,*.LMCO.COM,127.0.0.1,localhost,.amazonaws.com,*.amazonaws.com"
-#############################################################################################################
-   # Kaniko Variables
-#############################################################################################################
-    DOCKER_BUILD_DIR: "."
-    DOCKER_FILE: "docker/Dockerfile.alpine"
-    DOCKER_IMAGE: "registry.gitlab.global.lmco.com:443/software-factory/applications/secure-delivery/secure-software-supply-chain-tools/hyades/hyades-frontend"
-    DOCKER_REGISTRY: registry.gitlab.global.lmco.com:443
-    DOCKER_IMAGE_NAME_TAGGED: $CI_COMMIT_REF_NAME
-    ENABLE_KANIKO: "true"
-    KANIKO_BOM_GEN: "false"
-
-#############################################################################################################
-   # Node Variables
-#############################################################################################################
-    ENABLE_NODE_CI: "true"
-    ENABLE_NODE_BUILD: "true"
-    ENABLE_NODE_LINT: "false"
-    ENABLE_NODE_TEST: "false"
-    ENABLE_NODE_PUBLISH: "false"
-    # variable for tracking pipeline usage
-    SWF_PIPELINE_METRICS_PIPELINES_NODE_BASIC: "false"
+  http_proxy: http://proxy-zsgov.external.lmco.com:80
+  https_proxy: http://proxy-zsgov.external.lmco.com:80
+  no_proxy: ".lmco.com,.LMCO.COM,*.lmco.com,*.LMCO.COM,127.0.0.1,localhost,.amazonaws.com,*.amazonaws.com"
+  #############################################################################################################
+  # Kaniko Variables
+  #############################################################################################################
+  DOCKER_BUILD_DIR: "."
+  DOCKER_FILE: "docker/Dockerfile.alpine"
+  DOCKER_REGISTRY: registry.gitlab.global.lmco.com:443
+  ENABLE_KANIKO: "true"
+  KANIKO_BOM_GEN: "false"
+  #############################################################################################################
+  # Node Variables
+  #############################################################################################################
+  ENABLE_NODE_CI: "true"
+  ENABLE_NODE_BUILD: "true"
+  ENABLE_NODE_LINT: "false"
+  ENABLE_NODE_TEST: "false"
+  ENABLE_NODE_PUBLISH: "false"
+  # variable for tracking pipeline usage
+  SWF_PIPELINE_METRICS_PIPELINES_NODE_BASIC: "false"
 
 #############################################################################################################
    # Node Build
@@ -87,17 +84,42 @@ node-build:
       - dist/
 
 #############################################################################################################
+# Parse Build version
+#############################################################################################################
+get_version:
+  image: harbor.global.lmco.com/lmc.eo.swf.lmified/ext.hub.docker.com/redhat/ubi9:9.2
+  stage: build
+  script:
+    - rm -rf /etc/yum.repos.d/*.repo
+    - |
+      cat << EOF >> /etc/yum.repos.d/efoss-ubi-appstream.repo
+      [efoss-ubi9-appstream]
+      name=Lockheed Martin Enterprise FOSS Proxy UBI 9 appstream
+      baseurl=https://$EFOSS_USER:$EFOSS_TOKEN@nexus.global.lmco.com/repository/yum-ubi-9-proxy/x86_64/appstream/os/
+      proxy=_none_
+      failovermethod=priority
+      enabled=1
+      priority=1
+      gpgkey = file:///etc/pki/rpm-gpg/RPM-GPG-KEY-redhat-release
+      EOF
+    - yum install jq -y
+    - echo PACKAGE_VERSION=$(jq -r '.version' package.json) > variables.env
+    - cat variables.env
+  artifacts:
+    reports:
+      dotenv: variables.env
+
+#############################################################################################################
 # Kaniko Section
 #############################################################################################################
 kaniko:
-  stage: package
+  before_script:
+    - |
+      if [[ $CI_COMMIT_REF_NAME == $CI_DEFAULT_BRANCH ]]; then
+        export DOCKER_TAG="$CI_COMMIT_REF_SLUG-$PACKAGE_VERSION"
+      else
+        export DOCKER_TAG="$CI_COMMIT_REF_SLUG-$PACKAGE_VERSION-$CI_COMMIT_SHORT_SHA"
+      fi
+    - echo DOCKER_TAG - $DOCKER_TAG
   rules:
     - if: $ENABLE_KANIKO == "true"
-
-# Had to move this to package stage despite being disabled by KANIKO_BOM_GEN variable
-kaniko-bom:
-  stage: package
-
-# Had to move this to package stage despite being disabled by KANIKO_BOM_GEN variable
-kaniko-bom-validate:
-  stage: package
